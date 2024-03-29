@@ -1,6 +1,6 @@
 let globalFirstKeyCode = null;
 let globalSecondKeyCode = null;
-let globalLog = "";
+let globalHistory = "";
 
 window.onload = () => {
   initKeys();
@@ -74,7 +74,8 @@ function flushKey(key) {
       keyDiv.classList.add('highlighted');
     });
   });
-  const log = document.querySelector("#log");
-  globalLog += key.kana;
-  log.value = globalLog;
+  const history = document.querySelector("#history");
+  globalHistory += key.kana;
+  history.innerHTML += globalHistory;
+  history.scrollLeft = history.scrollWidth;
 }
